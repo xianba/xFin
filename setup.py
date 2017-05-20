@@ -2,7 +2,12 @@
 
 from setuptools import setup
 
-setup(
-    setup_requires=['pbr'],
-    pbr=True,
-)
+setup(name='finlib',
+      version='1.0.0',
+      packages=['finlib'],
+      entry_points={
+          'console_scripts': [
+              'finlib = finlib.main:main'
+          ]
+      },
+      )
