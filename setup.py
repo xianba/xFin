@@ -2,12 +2,12 @@
 
 from setuptools import setup
 
-setup(name='finlib',
+setup(name='xfin',
       version='1.0.0',
-      packages=['finlib'],
+      packages=['xfin'],
       entry_points={
           'console_scripts': [
-              'finlib = finlib.main:main'
+              'xfin = xfin.main:main'
           ]
       },
       )
