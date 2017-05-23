@@ -1,22 +1,42 @@
 import sys
 import argparse
 
+def kelly_formula(args):
+    fraction = 0
+    if args.bet == 0:
+          fraction =0
+    else:
+        fraction = (args.bet*args.pro+args.pro-1)/args.bet
+
+    print "fraction = {0}".format(fraction)
+    return fraction
+
 def main(args=None):
     """The main routine."""
-    if args is None:
-        args = sys.argv[1:]
+    # if args is None:
+    #    args = sys.argv[1:]
+    # 1.The main framework
+    parser = argparse.ArgumentParser(description='The most important financial function')
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument("echo",help="echo the string you use here")
+    subparser = parser.add_subparsers(title="Commands",
+        description="Subcommands for different functions")
+
+    # 2.Kelly formula
+    kelly = subparser.add_parser("kelly", help="Kerry formula",
+        description="Kerry calculation formula")
+    kelly.add_argument("-b", "--bet", type=float,
+        help="The odds of betting")
+    kelly.add_argument("-p", "--pro", type=float,
+        help="The probability of winning")
+    kelly.set_defaults(func=kelly_formula)
+
     args = parser.parse_args()
-    print args.echo
-
-    print("This is the main routine.")
-    print("It should do something interesting.")
+    args.func(args)
 
     # Do argument parsing here (eg. with argparse) and anything else
     # you want your project to do.
 
 if __name__ == "__main__":
     main()
+
     
