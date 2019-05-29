@@ -21,7 +21,7 @@ Upgrade
 """
 
 setup(name='xfin',
-      version='1.0.0',
+      version='1.0.2',
       packages=['xfin'],
       long_description=long_desc,
       entry_points={
