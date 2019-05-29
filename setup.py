@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 from setuptools import setup
+import codecs
+import os
 
 long_desc = """
 xFin
